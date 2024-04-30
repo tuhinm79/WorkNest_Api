@@ -5,7 +5,7 @@ import users from "../models/user.model.js"
 
 export const createMessage = async (req, res, next) => {
   const user1 = await users.findById(req.userId);
-  console.log(user1)
+  // console.log(user1)
   const newMessage = new Message({
     conversationId: req.body.conversationId,
     userId: req.userId,

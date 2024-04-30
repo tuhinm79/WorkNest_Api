@@ -9,7 +9,7 @@ import messageRoute from "./routes/message.route.js";
 import reviewRoute from "./routes/review.route.js";
 import authRoute from "./routes/auth.route.js";
 // import completedorder from "./routes/completedorder.route.js";
-import completedorder from "./routes/completedorder.route.js"
+import completedorder from "./routes/completedorder.route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
@@ -26,7 +26,12 @@ const connect = async () => {
   }
 };
 
-app.use(cors({ origin: ["http://localhost:5173","http://localhost:3000"], credentials: true }));
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "http://localhost:3000"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 
@@ -50,4 +55,3 @@ app.listen(8800, () => {
   connect();
   console.log("Backend server is running!");
 });
-// hello

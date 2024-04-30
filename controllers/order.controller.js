@@ -15,7 +15,7 @@ export const intent = async (req, res, next) => {
   //   },
   // });
   // const paymentIntent = i28d;
-  console.log(req.body);
+  // console.log(req.body);
 
   const newOrder = new Order({
     // orderId: _id,
@@ -26,8 +26,8 @@ export const intent = async (req, res, next) => {
     sellerId: gig.userId,
     price: gig.price,
     buyerName: req.body.buyername,
-    sellerName1:gig.sellerName,
-    deliveryTime:req.body.deliveryTime,
+    sellerName: gig.sellerName,
+    deliveryTime: req.body.deliveryTime,
     // payment_intent: paymentIntent.id,
   });
 

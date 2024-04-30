@@ -4,7 +4,7 @@
 // import Stripe from "stripe";
 import completedOrder from "../models/completed.model.js";
 export const postCompletedOrders = async (req, res, next) => {
-console.log(req.body.order);
+// console.log(req.body.order);
   const newCompletedOrder = new completedOrder({
     orderId: req.body.order._id,
     cgigId: JSON.stringify(req.body.order.gigId),

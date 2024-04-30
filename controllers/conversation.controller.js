@@ -2,13 +2,13 @@ import createError from "../utils/createError.js";
 import Conversation from "../models/conversation.model.js";
 
 export const createConversation = async (req, res, next) => {
-  console.log(req.body.isSeller);
+  // console.log(req.body.isSeller);
   const newConversation = new Conversation({
     id: req.body.isSeller
-      ? req.body.buyer + req.body.seller
-      : req.body.seller + req.body.buyer,
-    sellerId: req.body.isSeller ? req.body.buyer : req.body.seller,
-    buyerId: req.body.isSeller ? req.body.seller : req.body.buyer,
+      ? req.body.seller + req.body.buyer
+      : req.body.buyer + req.body.seller ,
+    sellerId: req.body.isSeller ? req.body.seller : req.body.buyer,
+    buyerId: req.body.isSeller ? req.body.buyer : req.body.seller,
     readBySeller: req.body.isSeller,
     readByBuyer: !req.body.isSeller,
   });
@@ -47,12 +47,12 @@ export const updateConversation = async (req, res, next) => {
 
 export const getSingleConversation = async (req, res, next) => {
   try {
-    // console.log("hello")
+    // console.log(req.params.id)
     const conversation = await Conversation.findOne({ id: req.params.id });
     if (!conversation) return next(createError(404, "Not found!"));
     res.status(200).send(conversation);
   } catch (err) {
-    console.log("hi");
+    // console.log("hi");
     next(err);
   }
 };

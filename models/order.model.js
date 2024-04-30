@@ -35,7 +35,7 @@ const OrderSchema = new Schema(
       type: String,
       required: true,
     },
-    sellerName1: {
+    sellerName: {
       type: String,
       required: true,
     },

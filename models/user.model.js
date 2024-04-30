@@ -34,7 +34,8 @@ const userSchema = new Schema({
   },
   isSeller: {
     type: Boolean,
-    default:false
+    default:false,
+    required: true,
   },
 },{
   timestamps:true
