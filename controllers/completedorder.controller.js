@@ -30,8 +30,9 @@ export const postCompletedOrders = async (req, res, next) => {
 
 export const getCompletedOrders = async (req, res, next) => {
   try {
-    const CompletedOrders = await completedOrder.find({
-      ...({ sellerId: req.userId } , { buyerId: req.userId }),
+    // console.log(req.userId)
+        const CompletedOrders = await completedOrder.find({
+          $or: [{ sellerId: req.userId }, { buyerId: req.userId }],
       // isCompleted: true,
     });
     // console.log(req);
