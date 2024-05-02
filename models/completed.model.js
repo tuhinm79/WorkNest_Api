@@ -35,14 +35,14 @@ const CompletedOrderSchema = new Schema(
       type: String,
       required: true,
     },
-    // sellerName: {
-    //   type: String,
-    //   required: true,
-    // },
-    // buyerName: {
-    //   type: String,
-    //   required: true,
-    // },
+    sellerName: {
+      type: String,
+      required: true,
+    },
+    buyerName: {
+      type: String,
+      required: true,
+    },
     completedAt: {
       type: Date,
       required: false,
