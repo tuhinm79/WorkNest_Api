@@ -35,6 +35,6 @@ const sendEmail = async (req, res) => {
 };
 
 router.post("/", sendEmail);
-console.log(sendEmail);
+// console.log(sendEmail);
 
 export default router;
