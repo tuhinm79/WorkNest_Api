@@ -4,6 +4,13 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 export const register = async (req, res, next) => {
+  // console.log(req.body);
+  const user = await User.findOne({ username: req.body.username });
+
+  if (user) { return next(createError(404, "User Name already in use!"));}
+  const email = await User.findOne({ email: req.body.email });
+
+  if (email) return next(createError(404, "Email ID already in use!"));
   try {
     const hash = bcrypt.hashSync(req.body.password, 5);
     const newUser = new User({
@@ -14,6 +21,7 @@ export const register = async (req, res, next) => {
     await newUser.save();
     res.status(201).send("User has been created.");
   } catch (err) {
+    console.log(err)
     next(err);
   }
 };
@@ -25,7 +33,7 @@ export const login = async (req, res, next) => {
 
     const isCorrect = bcrypt.compareSync(req.body.password, user.password);
     if (!isCorrect)
-      return next(createError(400, "Wrong password or username!"));
+      return next(createError(400, "Wrong Password!"));
     // console.log(user);
     const token = jwt.sign(
       {
