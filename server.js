@@ -61,6 +61,9 @@ app.use((err, req, res, next) => {
 
   return res.status(errorStatus).send(errorMessage);
 });
+app.use((req, res, next) => {
+  res.status(404).json({ message: "Resource not found" });
+});
 
 app.listen(8800, () => {
   connect();
