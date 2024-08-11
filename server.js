@@ -12,7 +12,7 @@ import authRoute from "./routes/auth.route.js";
 import completedorder from "./routes/completedorder.route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import sendEmail from "./routes/sendotp.route.js"
+import sendEmail from "./routes/sendotp.route.js";
 
 const app = express();
 dotenv.config();
@@ -29,12 +29,16 @@ const connect = async () => {
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:3000","https://work-nest-client.vercel.app/"],
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:3000",
+      "https://work-nest-client.vercel.app/",
+    ],
     credentials: true,
   })
 );
 app.use(express.json());
-app.use(cookieParser()); 
+app.use(cookieParser());
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
@@ -45,6 +49,11 @@ app.use("/api/messages", messageRoute);
 app.use("/api/reviews", reviewRoute);
 app.use("/api/completedorder", completedorder);
 app.use("/api/email", sendEmail);
+
+// app.get("/", (req, res) => {
+//   // Example response
+//   res.json("hello");
+// });
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
