@@ -33,6 +33,9 @@ app.use(
       "http://localhost:5173",
       "http://localhost:3000",
       "https://work-nest-client.vercel.app/",
+      "https://work-nest-client-git-main-tuhinm79s-projects.vercel.app/",
+      "https://work-nest-client-3k854jpzn-tuhinm79s-projects.vercel.app/",
+      "https://work-nest-client-tuhinm79s-projects.vercel.app/",
     ],
     credentials: true,
   })
