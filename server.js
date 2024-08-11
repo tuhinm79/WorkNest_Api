@@ -50,10 +50,10 @@ app.use("/api/reviews", reviewRoute);
 app.use("/api/completedorder", completedorder);
 app.use("/api/email", sendEmail);
 
-// app.get("/", (req, res) => {
-//   // Example response
-//   res.json("hello");
-// });
+app.get("/", (req, res) => {
+  // Example response
+  res.json("hello");
+});
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
